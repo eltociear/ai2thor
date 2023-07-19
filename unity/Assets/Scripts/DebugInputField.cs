@@ -416,6 +416,21 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                         // am.Initialize(action);
                         break;
                     }
+
+                case "reproab": {
+                        List<string> commands = new List<string>();
+                        commands.Add("initab");
+                        commands.Add("chp train_4");
+                        commands.Add("abtelefull");
+                        // commands.Add("abmovearmbaseup");
+                        // commands.Add("abextendarm");
+                        // commands.Add("telefull");
+                        // commands.Add("mmlah 0.5203709825292535 2 True True");
+                        // commands.Add("mmla 0.01000303 -1.63912773e-06 0.558107364 2 armBase True False True");
+                        StartCoroutine(ExecuteBatch(commands));
+                        break;
+                    }
+
                 case "initab": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         // if you want to use smaller grid size step increments, initialize with a smaller/larger gridsize here
@@ -3568,8 +3583,9 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                 case "mau": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         action["action"] = "MoveArmBaseUp";
-                        action["distance"] = 0.5f;
+                        action["distance"] = 0.8f;
                         action["speed"] = 1.0f;
+                        action["disableRendering"] = true;
                         CurrentActiveController().ProcessControlCommand(action);
                         break;
                     }
@@ -3577,11 +3593,9 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                 case "abmovebaseup": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         action["action"] = "MoveArmBaseUp";
-                        action["distance"] = 0.05f;
-                        action["speed"] = 5.0f;
+                        action["distance"] = 0.5f;
+                        action["speed"] = 1.0f;
                         action["disableRendering"] = false;
-
-                        //action["fixedDeltaTime"] = 5.0f;
                         CurrentActiveController().ProcessControlCommand(action);
                         break;
                     }
@@ -3589,11 +3603,9 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                 case "abmovebasedown": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         action["action"] = "MoveArmBaseDown";
-                        action["distance"] = 0.05f;
-                        action["speed"] = 5.0f;
+                        action["distance"] = 0.5f;
+                        action["speed"] = 1.0f;
                         action["disableRendering"] = false;
-
-                        //action["fixedDeltaTime"] = 5.0f;
                         CurrentActiveController().ProcessControlCommand(action);
                         break;
                     }
@@ -3601,11 +3613,9 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                 case "abextendarm": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         action["action"] = "MoveArm";
-                        action["position"] = new Vector3(0,0, 0.1f);
+                        action["position"] = new Vector3(0,0, 1.0f);
                         action["speed"] = 1.0f;
                         action["disableRendering"] = false;
-
-                        //action["fixedDeltaTime"] = 5.0f;
                         CurrentActiveController().ProcessControlCommand(action);
                         break;
                     }
@@ -3613,11 +3623,9 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                 case "abretractarm": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         action["action"] = "MoveArm";
-                        action["position"] = new Vector3(0,0, -0.1f);
+                        action["position"] = new Vector3(0,0, -1.0f);
                         action["speed"] = 1.0f;
                         action["disableRendering"] = false;
-
-                        //action["fixedDeltaTime"] = 5.0f;
                         CurrentActiveController().ProcessControlCommand(action);
                         break;
                     }
@@ -3667,9 +3675,9 @@ namespace UnityStandardAssets.Characters.FirstPerson {
                 case "abtelefull": {
                         Dictionary<string, object> action = new Dictionary<string, object>();
                         action["action"] = "TeleportFull";
-                        action["position"] = new Vector3(-1f, -50.01804f, 0f);
-                        action["rotation"] = new Vector3(0f, 170f, 0f);
-                        action["horizon"] = -20f;
+                        action["position"] = new Vector3(6.75f, 0.95f, 6.5f);
+                        action["rotation"] = new Vector3(0f, 180f, 0f);
+                        //action["horizon"] = -20f;
                         CurrentActiveController().ProcessControlCommand(action);
                         break;
                     }
